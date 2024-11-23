@@ -6448,12 +6448,30 @@ void dump_vmcs(struct kvm_vcpu *vcpu)
  * The guest has exited.  See if we can fix it or if we need userspace
  * assistance.
  */
+
+static u64 exit_count[1024] = {0};
+static u64 total_exists = 0;
+
 static int __vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
 {
 	struct vcpu_vmx *vmx = to_vmx(vcpu);
 	union vmx_exit_reason exit_reason = vmx->exit_reason;
 	u32 vectoring_info = vmx->idt_vectoring_info;
 	u16 exit_handler_index;
+	u32 reason = exit_reason.full;
+
+
+	exit_count[reason]++;
+	total_exits++;
+
+	if (total_exits % 10000 == 0) {
+		printkl("Total VM Exits: %llu \n", total_exits);
+		for (int i = 0; i < 1024; i++) {
+			if (exit_count[i] > 0) {
+				printk("Exit reason %u %llu\n", reason, exit_count[i]);
+			}
+		}
+	}
 
 	/*
 	 * Flush logged GPAs PML buffer, this will make dirty_bitmap more
