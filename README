@@ -2,7 +2,7 @@
 #### - Configured a linux kernel build (make config) using the cloned tree and built the kernel.
 #### - Also installed any required initrd/initramfs.
 
-![img](https://github.com/MJinH/linux/blob/6e2e58156f3a3b1ee6273fc043daaabd4580e953/images/1.png)
+![img](images/1.png)
 
 ![img](images/2.png)
 
