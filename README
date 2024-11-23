@@ -2,20 +2,20 @@
 #### - Configured a linux kernel build (make config) using the cloned tree and built the kernel.
 #### - Also installed any required initrd/initramfs.
 
-![img](./images/1.png)
+![img](https://github.com/MJinH/linux/blob/6e2e58156f3a3b1ee6273fc043daaabd4580e953/images/1.png)
 
-![img](./images/2.png)
+![img](images/2.png)
 
 
 #### - Encountered “Makefile” error during configuring a linux kernel build.
 #### - Installed any relevant modules (e.g : libncurses-dev, pkg-config)
 #### - Configure was successful after installing necessary dependencies and modules.
 
-![img](./images/4.png)
+![img](images/4.png)
 
-![img](./images/3.png)
+![img](images/3.png)
 
-![img](./images/6.png)
+![img](images/6.png)
 
 #### - After that, I configured initrd.img using the “mkinitramfs” command.
 
