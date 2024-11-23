@@ -1,18 +1,43 @@
-Linux kernel
-============
+### Fork the master linux Github repository
+#### - Configured a linux kernel build (make config) using the cloned tree and built the kernel.
+#### - Also installed any required initrd/initramfs.
 
-There are several guides for kernel developers and users. These guides can
-be rendered in a number of formats, like HTML and PDF. Please read
-Documentation/admin-guide/README.rst first.
+![img](./images/1.png)
 
-In order to build the documentation, use ``make htmldocs`` or
-``make pdfdocs``.  The formatted documentation can also be read online at:
+![img](./images/2.png)
 
-    https://www.kernel.org/doc/html/latest/
 
-There are various text files in the Documentation/ subdirectory,
-several of them using the reStructuredText markup notation.
+#### - Encountered “Makefile” error during configuring a linux kernel build.
+#### - Installed any relevant modules (e.g : libncurses-dev, pkg-config)
+#### - Configure was successful after installing necessary dependencies and modules.
 
-Please read the Documentation/process/changes.rst file, as it contains the
-requirements for building and running the kernel, and information about
-the problems which may result by upgrading your kernel.
+![img](./images/4.png)
+
+![img](./images/3.png)
+
+![img](./images/6.png)
+
+#### - After that, I configured initrd.img using the “mkinitramfs” command.
+
+![img](./images/5.png)
+
+#### - Updated grub using grub.cfg file before installing the test kernel.
+![img](./images/7.png)
+
+
+
+### Boot into the test kernel and modify the KVM code:
+#### - After rebooting, ensure the system successfully boots into the newly built kernel.
+#### - Use the uname -r command to check the current kernel version and verify that it matches the one you installed.
+#### - Then, locate the __vmx_handle_exit function in the arch/x86/vmx/vmx.c file and implement code to count total_exit and exit type accordingly.
+
+![img](./images/8.png)
+
+![img](./images/9.png)
+
+![img](./images/10.png)
+
+#### - After that, rebuild the kernel using make -j$(nproc), then run make_modules and make modules_install to install the KVM module. 
+#### - Finally, reboot the system to test the changes.
+
+![img](./images/11.png)
